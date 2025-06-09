@@ -26,4 +26,44 @@ public class ElevatorRequests implements ElevatorCommand {
             controller.requestElevator(elevatorId,elevatorDirection,floor);
         }
     }
+
+    public int getElevatorId() {
+        return elevatorId;
+    }
+
+    public void setElevatorId(int elevatorId) {
+        this.elevatorId = elevatorId;
+    }
+
+    public int getFloor() {
+        return floor;
+    }
+
+    public void setFloor(int floor) {
+        this.floor = floor;
+    }
+
+    public ElevatorController getController() {
+        return controller;
+    }
+
+    public void setController(ElevatorController controller) {
+        this.controller = controller;
+    }
+
+    public Direction getElevatorDirection() {
+        return elevatorDirection;
+    }
+
+    public void setElevatorDirection(Direction elevatorDirection) {
+        this.elevatorDirection = elevatorDirection;
+    }
+
+    public Boolean getInternalRequest() {
+        return isInternalRequest;
+    }
+
+    public void setInternalRequest(Boolean internalRequest) {
+        isInternalRequest = internalRequest;
+    }
 }
