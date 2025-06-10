@@ -1,6 +1,6 @@
-# 🚀 Elevator System Design - LLD
+# 🚀 Utilities.Elevator System Design - LLD
 
-A Low-Level Design (LLD) implementation of an Elevator (Lift) System that models real-world elevator behavior in a multi-floor building. Designed with object-oriented programming principles and extensibility in mind.
+A Low-Level Design (LLD) implementation of an Utilities.Elevator (Lift) System that models real-world elevator behavior in a multi-floor building. Designed with object-oriented programming principles and extensibility in mind.
 
 ---
 
@@ -20,7 +20,7 @@ A Low-Level Design (LLD) implementation of an Elevator (Lift) System that models
 
 ## 🧾 Overview
 
-This project demonstrates the **object-oriented low-level design** of an Elevator System. It simulates elevator operations in a multi-floor building, handling requests from users both inside the elevator (cabin buttons) and from building floors (hall calls).
+This project demonstrates the **object-oriented low-level design** of an Utilities.Elevator System. It simulates elevator operations in a multi-floor building, handling requests from users both inside the elevator (cabin buttons) and from building floors (hall calls).
 
 ---
 
@@ -28,7 +28,7 @@ This project demonstrates the **object-oriented low-level design** of an Elevato
 
 - Support for multiple elevators
 - Handles internal and external requests
-- Elevator states: **Moving**, **Idle**, **Maintenance**, **Stop**
+- Utilities.Elevator states: **Moving**, **Idle**, **Maintenance**, **Stop**
 - Direction-based scheduling (up/down)
 - Priority and queue management
 - Emergency stop (optional)
@@ -47,7 +47,7 @@ This project demonstrates the **object-oriented low-level design** of an Elevato
 Main components:
 
 - `ElevatorSystem`
-- `Elevator`
+- `Utilities.Elevator`
 - `Request`
 - `Scheduler`
 - `Floor`
@@ -60,7 +60,7 @@ Main components:
 - Manages a fleet of elevators
 - Delegates request handling
 
-### Elevator
+### Utilities.Elevator
 - Tracks current floor, direction, and state
 - Maintains queues for up and down requests
 
@@ -70,11 +70,11 @@ Main components:
 
 ### Request
 - Represents a user's input (floor + direction)
-- Types: `ExternalRequest`, `InternalRequest`
+- Types: `ElevatorCommandRequest.ExternalRequestCommand`, `ElevatorCommandRequest.InternalRequestCommand`
 
 ### Floor & Button
 - Floor has up/down buttons
-- Elevator has cabin buttons for destination floors
+- Utilities.Elevator has cabin buttons for destination floors
 
 ---
 

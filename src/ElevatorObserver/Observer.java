@@ -1,9 +1,7 @@
 package ElevatorObserver;
 
-import units.Elevator;
-import utils.ElevatorState;
+import EnumUtil.Directions;
 
 public interface Observer {
-    void onElevatorFloorChange(Elevator elevator, int floor);
-    void onElevatorStateChange(Elevator elevator, ElevatorState elevatorState);
+    void update(int floor, String directions);
 }
