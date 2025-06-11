@@ -11,7 +11,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.PriorityQueue;
 
-public class Elevator implements Subject, Runnable {
+public class Elevator implements Subject {
     private int id;
     private int currentFloor = 0;
     private Directions direction;
@@ -124,32 +124,24 @@ public class Elevator implements Subject, Runnable {
         this.schedulerStrategy = lookStrategyScheduler;
     }
 
-    private boolean active = true;
-
-    // Call this once after initializing to begin processing
     public void start() {
-        Thread thread = new Thread(this);
-        thread.start();
-    }
+        new Thread(() -> {
+            while (true) {
+                Integer nextFloor = schedulerStrategy.getNextFloor(this);
+                if (nextFloor != null) {
+                    moveToFloor(nextFloor);
+                    System.out.println("Passenger exited at floor " + nextFloor);
+                } else {
+                    setDirection(Directions.IDLE);
+                    notifyObservers();
+                }
 
-    // Main loop for the elevator: keeps checking and processing requests
-    @Override
-    public void run() {
-        while (active) {
-            // Use the scheduling strategy to process current requests
-            if (schedulerStrategy != null) {
-                schedulerStrategy.schedule(this);  // You define this logic in LookStrategyScheduler
+                try {
+                    Thread.sleep(200);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
-
-            try {
-                Thread.sleep(500); // Wait before checking queues again
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public void stop() {
-        active = false;
+        }).start();
     }
 }

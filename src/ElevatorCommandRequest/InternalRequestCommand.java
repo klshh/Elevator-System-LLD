@@ -6,6 +6,7 @@ import Utilities.Elevator;
 public class InternalRequestCommand implements RequestCommand {
     private Elevator elevator;
     private int floor;
+    private int destination;
 
     public InternalRequestCommand(Elevator elevator, int floor) {
         this.elevator = elevator;
@@ -14,11 +15,7 @@ public class InternalRequestCommand implements RequestCommand {
 
     @Override
     public void execute() {
-        int currentFloor = elevator.getCurrentFloor();
-        if(floor > currentFloor){
-            elevator.addRequest(floor, Directions.UP);
-        } else if(floor < currentFloor) {
-            elevator.addRequest(floor,Directions.DOWN);
-        }
+        System.out.println("Passenger entered at floor " + floor + " (Destination: " + destination + ")");
+        elevator.addRequest(destination, elevator.getDirection());
     }
 }
